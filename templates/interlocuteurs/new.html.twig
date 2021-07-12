@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Interlocuteur{% endblock %}
+
+{% block body %}
+    <h1>Creer un nouveau Interlocuteur</h1>
+
+    {{ include('interlocuteurs/_form.html.twig') }}
+
+    <a href="{{ path('interlocuteurs_index') }}">retourner à la liste</a>
+{% endblock %}

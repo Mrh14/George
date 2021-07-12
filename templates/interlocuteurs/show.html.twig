@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Interlocuteurs{% endblock %}
+
+{% block body %}
+    <h1>Interlocuteurs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ interlocuteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ interlocuteur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ interlocuteur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ interlocuteur.fonction }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ interlocuteur.tel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('interlocuteurs_index') }}">retourner à la liste </a>
+
+    <a href="{{ path('interlocuteurs_edit', {'id': interlocuteur.id}) }}"> modifier</a>
+
+    {{ include('interlocuteurs/_delete_form.html.twig') }}
+{% endblock %}

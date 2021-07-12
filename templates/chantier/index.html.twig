@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MES CHANTIERS</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chantier in chantiers %}
+            <tr>
+                <td>{{ chantier.id }}</td>
+                <td>{{ chantier.type }}</td>
+                <td>
+                    <a href="{{ path('chantier_show', {'id': chantier.id}) }}">Afficher</a>
+                    <a href="{{ path('chantier_edit', {'id': chantier.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('chantier_new') }}">Créer un nouveau</a>
+{% endblock %}

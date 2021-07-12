@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Interlocuteur{% endblock %}
+
+{% block body %}
+    <h1>Modifier un Interlocuteur</h1>
+
+    {{ include('interlocuteurs/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('interlocuteurs_index') }}">retourner à la liste</a>
+
+    {{ include('interlocuteurs/_delete_form.html.twig') }}
+{% endblock %}

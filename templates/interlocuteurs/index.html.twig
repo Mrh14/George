@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Interlocuteurs{% endblock %}
+
+{% block body %}
+    <h1>La liste des Interlocuteurs </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Fonction</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for interlocuteur in interlocuteurs %}
+            <tr>
+                <td>{{ interlocuteur.id }}</td>
+                <td>{{ interlocuteur.nom }}</td>
+                <td>{{ interlocuteur.prenom }}</td>
+                <td>{{ interlocuteur.fonction }}</td>
+                <td>{{ interlocuteur.tel }}</td>
+                <td>
+                    <a href="{{ path('interlocuteurs_show', {'id': interlocuteur.id}) }}">afficher </a>
+                    <a href="{{ path('interlocuteurs_edit', {'id': interlocuteur.id}) }}"> modofier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('interlocuteurs_new') }}">Creer un nouveau interlocuteur</a>
+{% endblock %}
